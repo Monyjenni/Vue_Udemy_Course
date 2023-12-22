@@ -1,19 +1,43 @@
 const app = Vue.createApp({
   data() {
     return {
-      counter: 10,
+      counter: 0,
       name: "",
       confirmedName: "",
+      //fullname: "",
+      lastName: ""
     };
+  },
+  watch: {
+    counter(value){
+      if(value > 50){
+        this.counter = 0;
+      }
+    }
+    // when name changes will be triggered
+    // name(value) {
+    //   if(value === ''){
+    //     this.fullname = '';
+    //   }else{
+    //     this.fullname = value + '' + this.lastName;
+    //   }
+      
+    // },
+    // lastName(value){
+    //   if(value === ''){
+    //     this.fullname = '';
+    //   }else {
+    //     this.fullname = value + ' ' + this.name
+    //   }
   },
   computed: {
     //use is as data properties
     fullname(){
       console.log('running again from computed...')
-      if(this.name === '') {
+      if(this.name === '' || this.lastName === '') {
         return '';
       }
-      return this.name + '' + 'Yoeun'
+      return this.name + ' ' + this.lastName
       
     }
   },
