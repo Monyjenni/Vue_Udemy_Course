@@ -7,6 +7,13 @@ const app = Vue.createApp({
     };
   },
   methods: {
+    outputFullname() {
+      console.log('Running again ...')
+      if(this.name === ''){
+        return '';
+      }
+      return this.name + ' ' + 'Yoeun';
+    },
     confirmedInput() {
       this.confirmedName = this.name;
     },
@@ -22,7 +29,7 @@ const app = Vue.createApp({
       this.counter = this.counter - num;
     },
     // input from the event
-    setName(event, lastName) {
+    setName(event) {
       this.name = event.target.value 
     },
     resetInput() {
