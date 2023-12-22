@@ -22,9 +22,13 @@
       <button v-on:click="reduce(5)">Subtract 5</button>
       <p v-once>Starting Counter {{ counter }}</p>
       <p>Result: {{ counter }}</p>
+      <button v-on:click="resetInput">
+        Reset Input
+      </button>
       <label for="name"> My name</label>
       <input
         type="text"
+        :value="name"
         id="name"
         v-on:input="setName($event, 'Jennie')"
         v-on:keyup.enter="confirmedInput"
@@ -32,8 +36,9 @@
       <p>Your Name : {{ confirmedName }}</p>
       <form v-on:submit.prevent="submitForm">
         <label for="form"> Input </label>
-        <input type="text" id="form" />
-        <button type="button">Sign Up</button>
+        <!-- v-model == v-bind:value and v-on:input  -->
+        <input type="text" id="form" v-model="name" />
+        <button v-on:click="confirmedInput" type="button">Sign Up</button>
       </form>
     </section>
   </body>

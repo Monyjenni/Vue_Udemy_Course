@@ -23,8 +23,11 @@ const app = Vue.createApp({
     },
     // input from the event
     setName(event, lastName) {
-      this.name = event.target.value + " " + lastName;
+      this.name = event.target.value 
     },
+    resetInput() {
+      this.name = '';
+    }
   },
 });
 
