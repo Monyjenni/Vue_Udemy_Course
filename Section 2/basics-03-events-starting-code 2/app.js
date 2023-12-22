@@ -6,6 +6,17 @@ const app = Vue.createApp({
       confirmedName: "",
     };
   },
+  computed: {
+    //use is as data properties
+    fullname(){
+      console.log('running again from computed...')
+      if(this.name === '') {
+        return '';
+      }
+      return this.name + '' + 'Yoeun'
+      
+    }
+  },
   methods: {
     outputFullname() {
       console.log('Running again ...')

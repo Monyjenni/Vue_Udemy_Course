@@ -33,7 +33,7 @@
         v-on:input="setName($event, 'Jennie')"
         v-on:keyup.enter="confirmedInput"
       />
-      <p>Your Name : {{ outputFullname()}}</p>
+      <p>Your Name : {{ fullname }}</p>
       <form v-on:submit.prevent="submitForm">
         <label for="form"> Input </label>
         <!-- v-model == v-bind:value and v-on:input  -->
