@@ -11,7 +11,10 @@ const app = Vue.createApp({
   watch: {
     counter(value){
       if(value > 50){
-        this.counter = 0;
+        const that = this
+        setTimeout(function() {
+          that.counter = 0;
+        },2000);
       }
     }
     // when name changes will be triggered
