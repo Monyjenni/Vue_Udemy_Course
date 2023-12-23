@@ -17,5 +17,11 @@ methods: {
     }
   }
 },
+computed : {
+  boxAClasses() {
+    return { active: this.boxASelected }
+  }
+}
+
 });
 app.mount('#styling');
