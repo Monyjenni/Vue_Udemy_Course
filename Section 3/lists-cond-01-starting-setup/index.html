@@ -19,9 +19,9 @@
     <section id="user-goals">
       <h2>My course goals</h2>
       <label for="add goal"> Input </label>
-      <input id="add goal" type="text" />
-      <button>Add Goal</button>
-      <p>No goals have been added yet - please start adding some!</p>
+      <input id="add goal" type="text" v-model="enteredGoalValue"/>
+      <button @click="addGoal">Add Goal</button>
+      <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
       <ul>
         <li>Goal</li>
       </ul>
