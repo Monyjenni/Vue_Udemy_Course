@@ -2,11 +2,15 @@ function getRandomValue(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+let currentRound = 0;
+
+
 const app = Vue.createApp({
   data() {
     return {
       playerHealth: 100,
       monsterHealth: 100,
+      currentRound: 0
     };
   },
   computed: {
@@ -17,13 +21,17 @@ const app = Vue.createApp({
     },
     playerBarStyles() {
       return {
-        width: this.playerHealthHealth + '%'
+        width: this.playerHealth + '%'
       };
+    },
+    mayUseSpecialAttack() {
+      return this.currentRound % 3 !== 0;
     }
   },
 
   methods: {
     attackMonster() {
+      this.currentRound++
       // function to calculate random number between 12 and 5
       const attackValue = getRandomValue(5,12)
       this.monsterHealth = this.monsterHealth - attackValue;
@@ -37,6 +45,13 @@ const app = Vue.createApp({
       this.playerHealth = this.playerHealth - attackValue
       console.log(playerHealth)
     },
+    specialAttackMonster() {
+      this.currentRound++;
+      const attackValue = getRandomValue(10,25)
+      this.monsterHealth = this.monsterHealth - attackValue
+      this.attackPlayer();
+    }
+
   },
 });
 
