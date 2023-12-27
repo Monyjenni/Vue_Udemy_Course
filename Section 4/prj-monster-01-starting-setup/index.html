@@ -14,7 +14,7 @@
   </head>
   <body>
     <header>
-      <h1>Monster Slayer</h1>
+      <h1>Demon Slayer</h1>
     </header>
     <div id="game">
       <section id="monster" class="container">
@@ -44,7 +44,19 @@
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
-        <ul></ul>
+        <ul>
+          <li v-for="logMessage in logMessages">
+          <span :class="{'log--player': logMessage.actionBy === 'Moniee', 'log--monster': logMessage.actionBy === 'Demon'}" >
+            {{ logMessage.actionBy === 'Moniee' ? 'Moniee' : 'Demon' }}
+          </span>
+          <span v-if="logMessage.actionType === 'heal' " >
+            heals herself for <span class="log--heal"> {{ logMessage.actionValue }} </span>
+          </span>
+          <span v-else>
+            attacks and deals <span class="log--damage"> {{ logMessage.actionValue }} </span>
+          </span>
+          </li>
+        </ul>
       </section>
     </div>
   </body>
