@@ -10,14 +10,43 @@ const app = Vue.createApp({
       this.currentUserInput = event.target.value;
     },
     setText() {
-      // this.message = this.currentUserInput;
+      // this.mes sage = this.currentUserInput;
       this.message = this.$refs.userText.value;
       // console.dir(this.$refs.userText)
     },
   },
+  beforeCreate() {
+    console.log('beforeCreate()')
+  },
+  created() {
+    console.log('create()')
+  },
+  beforeMount() {
+    console.log('beforeMount()')
+  },
+  mounted() {
+    console.log('mounted')
+  },
+  beforeUpdate() {
+    console.log('beforeUpdate()')
+  },
+  updated() {
+    console.log('updated()')
+  },
+  beforeUnmount() {
+    console.log('beforeUnmount()')
+  },
+  unmounted() {
+    console.log('unmounted()')
+  },
 });
-
 app.mount("#app");
+
+setTimeout(() => {
+  app.unmount();
+},3000)
+
+
 
 const app2 = Vue.createApp({
   template: `
@@ -50,7 +79,7 @@ const handler = {
 const proxy = new Proxy(data, handler);
 // just wanna trigger when message is changed from the previous
 proxy.message = "Hello!!!";
-console.log("new one", proxy.longMessage);
+// console.log("new one", proxy.longMessage);
 
 // let message = 'Hello';
 
