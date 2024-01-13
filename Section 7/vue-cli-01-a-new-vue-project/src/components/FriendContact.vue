@@ -1,7 +1,8 @@
 <template>
   <li>
     <h2>
-      {{ name }}
+      {{ name }} {{ friendIsFavorite === '1' ? '(Hey this is fav)' : '' }}
+      <button @click="toggleFavorite">{{ detailsAreVisible ? 'Hide' : 'Toggle' }}</button>
       <button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'Show' }}</button>
       <ul v-if="detailsAreVisible">
         <li><strong>Phone:</strong> {{ phoneNumber }}</li>
@@ -22,18 +23,30 @@ export default {
         phone: '12345678',
         email: 'chansovanmony@gmail.com'
       },
+      friendIsFavorite : this.isFavorite,
     }
+
   },
   props: [
     'name',
     'phoneNumber',
-    'emailAddress'
+    'emailAddress',
+    'isFavorite'
   ],
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible
-      
+
+    },
+    toggleFavorite() {
+      if (this.friendIsFavorite == '1') {
+        // can't change in child here
+        this.friendIsFavorite = '0';
+      } else {
+        this.friendIsFavorite = '1';
+      }
     }
+
   }
 }
 </script>
