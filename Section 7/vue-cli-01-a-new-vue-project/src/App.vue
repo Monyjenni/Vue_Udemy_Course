@@ -1,36 +1,38 @@
 <template>
   <section>
-    <header><h1>My Friends </h1></header>
+    <header>
+      <h1>My Friends </h1>
+    </header>
     <ul>
-      <friend-contact/>
-      <friend-contact/>
+      <friend-contact name="Mony" phone-number="12345" email-address="mony@gmail.com" />
+      <friend-contact name="Jen" phone-number="1234567" email-address="jen@gmail.com"/>
     </ul>
   </section>
 </template>
 
 <script>
 import FriendContact from './components/FriendContact.vue'
-  export default {
+export default {
   components: { FriendContact },
-    data() {
-      return {
-        friends: [
-          {
-            id: 'Mony',
-            name: 'Sovan Mony',
-            phone: '12345678',
-            email: 'chansovanmony@gmail.com'
-          },
-          {
-            id: 'Jen',
-            name: 'Jennie',
-            phone: '12345678',
-            email: 'jen@gmail.com'
-          }
-        ]
-      }
+  data() {
+    return {
+      friends: [
+        {
+          id: 'Mony',
+          name: 'Sovan Mony',
+          phone: '12345678',
+          email: 'chansovanmony@gmail.com'
+        },
+        {
+          id: 'Jen',
+          name: 'Jennie',
+          phone: '12345678',
+          email: 'jen@gmail.com'
+        }
+      ]
     }
   }
+}
 
 </script>
 
