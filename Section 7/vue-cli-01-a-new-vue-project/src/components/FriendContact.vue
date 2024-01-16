@@ -1,7 +1,7 @@
 <template>
   <li>
     <h2>
-      {{ name }} {{ friendIsFavorite ? '(Hey this is fav)' : '' }}
+      {{ name }} {{ isFavorite ? '(Favorite)' : '' }}
       <button @click="toggleFavorite">{{ detailsAreVisible ? 'Hide' : 'Toggle' }}</button>
       <button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'Show' }}</button>
       <ul v-if="detailsAreVisible">
@@ -17,17 +17,14 @@ export default {
   data() {
     return {
       detailsAreVisible: false,
-      // friend: {
-      //   id: 'Mony',
-      //   name: 'Sovan Mony',
-      //   phone: '12345678',
-      //   email: 'chansovanmony@gmail.com'
-      // },
-      friendIsFavorite : this.isFavorite,
     }
 
   },
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     name: {
       type: String,
       required: true
@@ -55,7 +52,7 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible
     },
     toggleFavorite() {
-      this.friendIsFavorite = !this.friendIsFavorite
+      this.$emit('toggle-favorite',this.id );
     }
   }
 }
