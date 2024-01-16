@@ -47,12 +47,23 @@ export default {
     }
 
   },
+  // tell what we have emit
+  emits: {
+    'toggle-favorite': function(id){
+      if(id){
+        return true
+      }else{
+        console.warn('Id is missing')
+        return false
+      }
+    }
+  },
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible
     },
     toggleFavorite() {
-      this.$emit('toggle-favorite',this.id );
+      this.$emit('toggle-favorite',this.id);
     }
   }
 }
