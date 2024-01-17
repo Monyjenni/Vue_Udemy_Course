@@ -5,7 +5,7 @@
     </header>
     <new-friend @add-contact="addContact"></new-friend>
     <ul>
-      <friend-contact v-for="friend in friends" :key="friend.id"  :id="friend.id" :name="friend.name" :phone-number="friend.phone" :email-address="friend.email" :is-favorite="friend.isFavorite" @toggle-favorite="toggleFavoriteStatus" />
+      <friend-contact v-for="friend in friends" :key="friend.id"  :id="friend.id" :name="friend.name" :phone-number="friend.phone" :email-address="friend.email" :is-favorite="friend.isFavorite" @toggle-favorite="toggleFavoriteStatus" @delete="deleteContact"/>
     </ul>
   </section>
 </template>
@@ -51,6 +51,11 @@ export default {
       }
       this.friends.push(newFriendContact)
 
+    },
+    deleteContact(friendId) {
+      // if friend.id not equal to friendId it returns false once it's falsy it will filter
+      // it will generate the new array minus friendId
+      this.friends = this.friends.filter(friend => friend.id !== friendId )
     }
 
   }
