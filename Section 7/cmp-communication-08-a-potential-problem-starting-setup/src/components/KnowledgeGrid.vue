@@ -13,7 +13,8 @@
 
 <script>
 export default {
-  props: ['topics'],
+  // work w provide similar to prob, can inject from parent comp of it 
+  inject: ['topics'],
   emits: ['select-topic']
 };
 </script>

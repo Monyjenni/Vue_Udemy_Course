@@ -1,0 +1,1 @@
+use in custom comp that we don't wanna pass prop through just use provide and inject (inheritance from its parent)
