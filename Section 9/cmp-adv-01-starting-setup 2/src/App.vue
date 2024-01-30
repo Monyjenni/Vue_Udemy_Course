@@ -6,8 +6,9 @@
     <!-- <active-goals v-if="selectedComponent === 'active-goals'"></active-goals>
     <manage-goals v-if="selectedComponent === 'manage-goals'"></manage-goals> -->
     <!-- cmp point to selectedcomp that contains act and mana html tag -->
-    <component :is="selectedComponent"></component>
-  
+    <keep-alive>
+      <component :is="selectedComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
@@ -16,12 +17,12 @@ import TheHeader from "./components/TheHeader.vue";
 // import BadgeList from "./components/BadgeList.vue";
 // import UserInfo from "./components/UserInfo.vue";
 // import CourseGoals from "./components/CourseGoal.vue";
-import ActiveGoals from "./components/ActiveGoals.vue"
-import ManageGoals from "./components/ManageGoals.vue"
+import ActiveGoals from "./components/ActiveGoals.vue";
+import ManageGoals from "./components/ManageGoals.vue";
 export default {
   data() {
     return {
-      selectedComponent: 'active-goals',
+      selectedComponent: "active-goals",
       activeUser: {
         name: "Chansovanmony Yoeun",
         description: "Site owner and admin",
@@ -32,14 +33,13 @@ export default {
   components: {
     "the-header": TheHeader,
     ActiveGoals,
-    ManageGoals
-
+    ManageGoals,
   },
   methods: {
     setSelectedComponent(cmp) {
       this.selectedComponent = cmp;
-    }
-  }
+    },
+  },
 };
 </script>
 
