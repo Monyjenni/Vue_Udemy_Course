@@ -10,7 +10,6 @@
         <button @click="confirmError">Okay</button>
       </error-alert>
     </teleport>
-    
   </div>
 </template>
 <script>
