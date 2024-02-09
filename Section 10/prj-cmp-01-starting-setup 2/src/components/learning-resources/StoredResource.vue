@@ -19,7 +19,6 @@ import LearningResource from './LearningResource.vue';
     components:  {
       LearningResource
     }
-
     
   }
 </script>

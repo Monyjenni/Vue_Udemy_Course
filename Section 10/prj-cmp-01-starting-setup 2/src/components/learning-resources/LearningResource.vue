@@ -2,10 +2,8 @@
   <li>
     <base-card>
       <header>
-        <h3>
-          {{ title }}
-        </h3>
-        <base-button mode="flat">Delete</base-button>
+        <h3>{{ title }}</h3>
+        <button>Delete</button>
       </header>
       <p>{{ description }}</p>
       <nav>
