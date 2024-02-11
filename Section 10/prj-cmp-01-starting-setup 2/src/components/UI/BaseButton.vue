@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  props: ["type", "mode"],
+  props: ["mode"],
 };
 </script>
 
