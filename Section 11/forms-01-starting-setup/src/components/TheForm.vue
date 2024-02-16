@@ -16,6 +16,9 @@
       <input id="age" name="age" type="number" v-model="userAge" ref="ageInput" />
     </div>
     <div class="form-control">
+      <rating-control v-model="rating"></rating-control>
+    </div>
+    <div class="form-control">
       <label for="referrer">How did you hear about us?</label>
       <select id="referrer" name="referrer" v-model="referrer">
         <option value="google">Google</option>
@@ -82,7 +85,11 @@
 </template>
 
 <script>
+import RatingControl from "./RatingControl.vue";
 export default {
+  components: {
+    RatingControl,
+  },
   methods: {
     data() {
       return {
@@ -93,6 +100,7 @@ export default {
         how: null,
         confirm: false,
         userNameValidity: "pending",
+        rating: null,
       };
     },
     submitForm() {
@@ -113,6 +121,8 @@ export default {
       console.log("confirm?");
       console.log(this.confirm);
       this.confirm = false;
+      console.log("Rating", this.rating);
+      this.rating = null;
     },
     validateInput() {
       if (this.userName === "") {
