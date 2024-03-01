@@ -13,7 +13,7 @@
           <label for="rating-poor">Poor</label>
         </div>
         <div class="form-control">
-          <input
+          <inputss
             type="radio"
             id="rating-average"
             value="average"
@@ -59,7 +59,7 @@ export default {
         userName: this.enteredName,
         rating: this.chosenRating,
       });
-
+      fetch('https://vue-course-b75eb-default-rtdb.firebaseio.com/');
       this.enteredName = '';
       this.chosenRating = null;
     },
