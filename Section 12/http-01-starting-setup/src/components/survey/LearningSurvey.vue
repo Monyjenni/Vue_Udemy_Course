@@ -19,7 +19,7 @@
           <label for="rating-poor">Poor</label>
         </div>
         <div class="form-control">
-          <inputss
+          <input
             type="radio"
             id="rating-average"
             value="average"
