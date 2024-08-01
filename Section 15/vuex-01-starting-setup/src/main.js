@@ -9,6 +9,7 @@ const store = createStore({
       counter: 0
     };
   },
+  //function
   mutations: {
     increment(state) {
       state.counter = state.counter + 2;
@@ -17,6 +18,18 @@ const store = createStore({
       state.counter = state.counter + payload.value;
     }
   },
+  //caller
+  actions: {
+    increment(context ) {
+        setTimeout(function() {
+          context.commit('increment');
+        }, 2000); 
+    },
+    increase(context, payload) {
+      context.commit('increase', payload)
+    }
+  }
+  ,
   getters: {
     finalCounter(state) {
       return state.counter * 2;
@@ -31,7 +44,7 @@ const store = createStore({
       }
       return finalCounter;
     }
-  }
+  },
 })
 app.use(store)
 app.mount('#app');
