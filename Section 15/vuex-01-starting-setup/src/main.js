@@ -6,7 +6,8 @@ const app = createApp(App);
 const store = createStore({
   state() {
     return {
-      counter: 0
+      counter: 0,
+      isLoggedIn: false
     };
   },
   //function
@@ -16,6 +17,9 @@ const store = createStore({
     },
     increase(state, payload) {
       state.counter = state.counter + payload.value;
+    },
+    setAuth(state, payload) {
+      state.isLoggedIn = payload.isAuth;
     }
   },
   //caller
@@ -28,9 +32,16 @@ const store = createStore({
     increase(context, payload) {
       context.commit('increase', payload)
       console.log(context)
+    },
+    login(context) {
+      context.commit('setAuth', { isAuth: true })
+    },
+    logout(context) {
+      context.commit('setAuth', { isAuth: false })
     }
   }
   ,
+  //getter?
   getters: {
     finalCounter(state) {
       return state.counter * 2;
@@ -44,6 +55,9 @@ const store = createStore({
         return finalCounter
       }
       return finalCounter;
+    },
+    userIsAuthenticated(state) {
+      return state.isLoggedIn
     }
   },
 })
