@@ -3,6 +3,7 @@ import { createStore } from 'vuex';
 import App from './App.vue';
 
 const counterModule = {
+  namespaced: true,
   state() {
     return {
       counter: 0
@@ -27,6 +28,7 @@ const counterModule = {
       context.commit('increase', payload)
       console.log(context)
     },
+    login() {}
   },
   getters: {
     testAuth(state) {
