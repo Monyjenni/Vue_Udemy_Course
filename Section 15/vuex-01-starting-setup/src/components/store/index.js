@@ -1,6 +1,8 @@
 import { createStore } from 'vuex';
-import rootMutations from './mutations.js'
-import rootActions from './actions.js'
+import rootMutations from './mutations.js';
+import rootActions from './actions.js';
+import rootGetters from './getters.js';
+import counterModule from './modules/counter/index.js';
 const store = createStore({
   modules: { 
     numbers: counterModule
@@ -15,11 +17,7 @@ const store = createStore({
   //caller
   actions: rootActions,
   //getter?
-  getters: {
-    userIsAuthenticated(state) {
-      return state.isLoggedIn
-    }
-  },
+  getters: rootGetters ,
 })
 
 export default store;
