@@ -4,7 +4,6 @@
 </template>
 
 <script>
-import TheHeader from '../../../Section 10/prj-cmp-01-starting-setup 2/src/components/layouts/TheHeader.vue';
 import TheHeader from './components/layout/TheHeader.vue';
 
 export default {
